@@ -21,7 +21,9 @@ import java.util.Locale;
  */
 public class AptoideUtils {
 
-	public static String getFilters(Activity context) {
+    public static final com.apkupdater.util.aptoide.AptoideUtils.Size[] VALUES = Size.values();
+
+    public static String getFilters(Activity context) {
 		try {
 			String filters = "maxSdk="
 					+ Build.VERSION.SDK_INT
@@ -112,7 +114,7 @@ public class AptoideUtils {
 	}
 
 	public static String getScreenSize(Resources resources) {
-		return Size.values()[getScreenSizeInt(resources)].name().toLowerCase(Locale.ENGLISH);
+		return VALUES[getScreenSizeInt(resources)].name().toLowerCase(Locale.ENGLISH);
 	}
 
 	private static int getScreenSizeInt(Resources resources) {

@@ -1,6 +1,7 @@
 -keepattributes Signature
 
 # Gson
+#noinspection ShrinkerUnresolvedReference
 -keep class sun.misc.Unsafe { *; }
 -keepclassmembers,allowobfuscation class * { @com.google.gson.annotations.SerializedName <fields>; }
 
