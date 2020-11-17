@@ -6,6 +6,10 @@ String localProps = "../local.properties"
 
 android {
 
+    signingConfigs {
+        release {
+        }
+    }
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
 
@@ -14,7 +18,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 29
         versionCode 42
-        versionName "2.0.4"
+        versionName '2.0.5'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
