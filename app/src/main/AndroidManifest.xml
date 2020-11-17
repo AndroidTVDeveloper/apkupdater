@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress ALL -->
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -47,7 +48,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.startapp.android.publish.adsCommon.activities.OverlayActivity" android:theme="@android:style/Theme.Translucent" android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity android:name="com.startapp.android.publish.adsCommon.activities.OverlayActivity" android:theme="@android:style/Theme.Translucent" android:configChanges="orientation|keyboardHidden|screenSize"
+            tools:ignore="MissingClass" />
 
         <receiver android:name="com.apkupdater.receiver.AlarmReceiver" android:enabled="true"/>
 

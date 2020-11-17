@@ -46,6 +46,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
+@SuppressWarnings("ALL")
 public class NativeDeviceInfoProvider implements DeviceInfoProvider {
 
     private Context context;

@@ -21,6 +21,8 @@ import java.util.Locale;
  */
 public class AptoideUtils {
 
+	public static final Size[] VALUES = Size.values();
+
 	public static String getFilters(Activity context) {
 		try {
 			String filters = "maxSdk="
@@ -112,7 +114,7 @@ public class AptoideUtils {
 	}
 
 	public static String getScreenSize(Resources resources) {
-		return Size.values()[getScreenSizeInt(resources)].name().toLowerCase(Locale.ENGLISH);
+		return VALUES[getScreenSizeInt(resources)].name().toLowerCase(Locale.ENGLISH);
 	}
 
 	private static int getScreenSizeInt(Resources resources) {
@@ -142,7 +144,7 @@ public class AptoideUtils {
 			int halfbyte = (data[i] >>> 4) & 0x0F;
 			int two_halfs = 0;
 			do {
-				if ((0 <= halfbyte) && (halfbyte <= 9)) {
+				if (halfbyte <= 9) {
 					buf.append((char) ('0' + halfbyte));
 				} else {
 					buf.append((char) ('a' + (halfbyte - 10)));

@@ -27,6 +27,8 @@ import com.dragons.aurora.playstoreapiv2.GooglePlayAPI;
 import com.dragons.aurora.playstoreapiv2.GooglePlayException;
 import com.dragons.aurora.playstoreapiv2.HttpClientAdapter;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,6 +47,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+@SuppressWarnings("ALL")
 public class OkHttpClientAdapter extends HttpClientAdapter {
 
     private final OkHttpClient client;
@@ -58,12 +61,13 @@ public class OkHttpClientAdapter extends HttpClientAdapter {
                     private final HashMap<HttpUrl, List<Cookie>> cookieStore = new HashMap<>();
 
                     @Override
-                    public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
+                    public void saveFromResponse(@NotNull HttpUrl url, @NotNull List<Cookie> cookies) {
                         cookieStore.put(url, cookies);
                     }
 
+                    @NotNull
                     @Override
-                    public List<Cookie> loadForRequest(HttpUrl url) {
+                    public List<Cookie> loadForRequest(@NotNull HttpUrl url) {
                         List<Cookie> cookies = cookieStore.get(url);
                         return cookies != null ? cookies : new ArrayList<>();
                     }

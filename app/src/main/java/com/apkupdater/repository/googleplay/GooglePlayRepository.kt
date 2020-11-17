@@ -1,3 +1,5 @@
+@file:Suppress("Annotator", "Annotator", "Annotator", "Annotator")
+
 package com.apkupdater.repository.googleplay
 
 import android.content.Context
