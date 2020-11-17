@@ -47,7 +47,7 @@ import okhttp3.Response;
 
 public class OkHttpClientAdapter extends HttpClientAdapter {
 
-    private OkHttpClient client;
+    private final OkHttpClient client;
 
     public OkHttpClientAdapter(Context context) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder()
