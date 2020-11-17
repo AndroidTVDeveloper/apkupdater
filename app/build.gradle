@@ -16,28 +16,12 @@ android {
         versionCode 42
         versionName "2.0.4"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        signingConfig signingConfigs.debug
         multiDexEnabled true
-    }
-
-    signingConfigs {
-        release {
-            Properties props = new Properties()
-            if(file(localProps).exists()) {
-                props.load(new FileInputStream(file(localProps)))
-                storeFile file(props['keystore.file'])
-                storePassword props['keystore.password']
-                keyAlias props['keystore.keyalias']
-                keyPassword props['keystore.keypassword']
-                v1SigningEnabled true
-                v2SigningEnabled true
-            }
-        }
     }
 
     buildTypes {
         release {
-            if (file(localProps).exists()) signingConfig signingConfigs.release
+            if (file(localProps).exists())
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
