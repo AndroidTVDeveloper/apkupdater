@@ -44,6 +44,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.TimeZone;
 
 public class NativeDeviceInfoProvider implements DeviceInfoProvider {
@@ -93,7 +94,7 @@ public class NativeDeviceInfoProvider implements DeviceInfoProvider {
     }
 
     public static List<String> getSharedLibraries(Context context) {
-        List<String> libraries = new ArrayList<>(Arrays.asList(context.getPackageManager().getSystemSharedLibraryNames()));
+        List<String> libraries = new ArrayList<>(Arrays.asList(Objects.requireNonNull(context.getPackageManager().getSystemSharedLibraryNames())));
         Collections.sort(libraries);
         return libraries;
     }

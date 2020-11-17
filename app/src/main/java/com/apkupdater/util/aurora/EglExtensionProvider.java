@@ -84,9 +84,7 @@ public class EglExtensionProvider {
             return;
         }
         javax.microedition.khronos.egl.EGLSurface eglSurface = egl10.eglCreatePbufferSurface(egldisplay, eglconfig, ai);
-        if (eglSurface == EGL10.EGL_NO_SURFACE) {
-            egl10.eglDestroyContext(egldisplay, eglContext);
-        } else {
+        if (eglSurface != EGL10.EGL_NO_SURFACE) {
             egl10.eglMakeCurrent(egldisplay, eglSurface, eglSurface, eglContext);
             String s = GLES10.glGetString(7939);
             if (!TextUtils.isEmpty(s)) {
@@ -96,7 +94,7 @@ public class EglExtensionProvider {
             }
             egl10.eglMakeCurrent(egldisplay, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_CONTEXT);
             egl10.eglDestroySurface(egldisplay, eglSurface);
-            egl10.eglDestroyContext(egldisplay, eglContext);
         }
+        egl10.eglDestroyContext(egldisplay, eglContext);
     }
 }

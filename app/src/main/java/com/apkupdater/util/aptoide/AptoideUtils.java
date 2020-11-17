@@ -144,7 +144,7 @@ public class AptoideUtils {
 			int halfbyte = (data[i] >>> 4) & 0x0F;
 			int two_halfs = 0;
 			do {
-				if ((0 <= halfbyte) && (halfbyte <= 9)) {
+				if (halfbyte <= 9) {
 					buf.append((char) ('0' + halfbyte));
 				} else {
 					buf.append((char) ('a' + (halfbyte - 10)));

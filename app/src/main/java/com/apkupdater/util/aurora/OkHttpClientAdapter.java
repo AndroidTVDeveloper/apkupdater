@@ -34,6 +34,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cookie;
@@ -138,7 +139,7 @@ public class OkHttpClientAdapter extends HttpClientAdapter {
         Response response = client.newCall(request).execute();
 
         int code = response.code();
-        byte[] content = response.body().bytes();
+        byte[] content = Objects.requireNonNull(response.body()).bytes();
 
         if (code == 401 || code == 403) {
             AuthException authException = new AuthException("Auth error", code);
@@ -164,7 +165,7 @@ public class OkHttpClientAdapter extends HttpClientAdapter {
     }
 
     public String buildUrl(String url, Map<String, String> params) {
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(url).newBuilder();
+        HttpUrl.Builder urlBuilder = Objects.requireNonNull(HttpUrl.parse(url)).newBuilder();
         if (null != params && !params.isEmpty()) {
             for (String name : params.keySet()) {
                 urlBuilder.addQueryParameter(name, params.get(name));
@@ -174,7 +175,7 @@ public class OkHttpClientAdapter extends HttpClientAdapter {
     }
 
     public String buildUrlEx(String url, Map<String, List<String>> params) {
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(url).newBuilder();
+        HttpUrl.Builder urlBuilder = Objects.requireNonNull(HttpUrl.parse(url)).newBuilder();
         if (null != params && !params.isEmpty()) {
             for (String name : params.keySet()) {
                 for (String value : params.get(name)) {
