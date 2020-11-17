@@ -1,9 +1,9 @@
 package com.apkupdater.repository.aptoide
 
 import com.apkupdater.R
-import com.apkupdater.model.ui.AppSearch
 import com.apkupdater.model.aptoide.ListSearchAppsRequest
 import com.apkupdater.model.aptoide.ListSearchAppsResponse
+import com.apkupdater.model.ui.AppSearch
 import com.apkupdater.util.app.AppPrefs
 import com.apkupdater.util.ioScope
 import com.github.kittinunf.fuel.Fuel

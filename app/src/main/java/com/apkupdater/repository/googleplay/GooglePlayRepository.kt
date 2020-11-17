@@ -11,11 +11,7 @@ import com.apkupdater.util.aurora.NativeDeviceInfoProvider
 import com.apkupdater.util.aurora.OkHttpClientAdapter
 import com.apkupdater.util.ioScope
 import com.apkupdater.util.orZero
-import com.dragons.aurora.playstoreapiv2.AppDetails
-import com.dragons.aurora.playstoreapiv2.DocV2
-import com.dragons.aurora.playstoreapiv2.GooglePlayAPI
-import com.dragons.aurora.playstoreapiv2.PlayStoreApiBuilder
-import com.dragons.aurora.playstoreapiv2.SearchIterator
+import com.dragons.aurora.playstoreapiv2.*
 import kotlinx.coroutines.async
 import org.koin.core.KoinComponent
 import org.koin.core.inject

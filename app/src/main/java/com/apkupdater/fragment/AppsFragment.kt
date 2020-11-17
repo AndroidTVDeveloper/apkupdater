@@ -17,13 +17,8 @@ import com.apkupdater.viewmodel.AppsViewModel
 import com.apkupdater.viewmodel.MainViewModel
 import com.bumptech.glide.Glide
 import com.kryptoprefs.invoke
-import kotlinx.android.synthetic.main.fragment_apps.recycler_view
-import kotlinx.android.synthetic.main.view_apps.view.action_one
-import kotlinx.android.synthetic.main.view_apps.view.container
-import kotlinx.android.synthetic.main.view_apps.view.icon
-import kotlinx.android.synthetic.main.view_apps.view.name
-import kotlinx.android.synthetic.main.view_apps.view.packageName
-import kotlinx.android.synthetic.main.view_apps.view.version
+import kotlinx.android.synthetic.main.fragment_apps.*
+import kotlinx.android.synthetic.main.view_apps.view.*
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.sharedViewModel

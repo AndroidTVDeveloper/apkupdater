@@ -25,9 +25,7 @@ import com.apkupdater.viewmodel.SearchViewModel
 import com.apkupdater.viewmodel.UpdatesViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.kryptoprefs.invoke
-import kotlinx.android.synthetic.main.activity_main.container
-import kotlinx.android.synthetic.main.activity_main.nav_view
-import kotlinx.android.synthetic.main.activity_main.swipe_layout
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
