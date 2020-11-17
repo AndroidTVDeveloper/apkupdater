@@ -7,7 +7,6 @@ import com.apkupdater.model.selfupdate.SelfUpdateResponse
 import com.apkupdater.util.app.AppPrefs
 import com.apkupdater.util.app.InstallUtil
 import com.apkupdater.util.catchingAsync
-import com.apkupdater.util.ioScope
 import com.github.kittinunf.fuel.Fuel
 import com.google.gson.Gson
 import com.kryptoprefs.invoke
@@ -26,14 +25,22 @@ class SelfUpdateRepository: KoinComponent {
 	private val url = "http://rumboalla.github.io/apkupdater/version.json"
 	private val interval = 60 * 60 * 1000
 
-	fun checkForUpdatesAsync(activity: Activity) = ioScope.catchingAsync {
+	fun checkForUpdatesAsync(activity: Activity) = catchingAsync() {
 		if (System.currentTimeMillis() - prefs.selfUpdateCheck() > interval) {
 			val r = Fuel.get(url).responseString().third.get()
 			val o = Gson().fromJson<SelfUpdateResponse>(r, SelfUpdateResponse::class.java)
 			prefs.selfUpdateCheck(System.currentTimeMillis())
-			if (o.version > activity.packageManager.getPackageInfo(activity.packageName, 0).versionCode) {
+			if (o.version > activity.packageManager.getPackageInfo(
+					activity.packageName,
+					0
+				).versionCode
+			) {
 				if (withContext(Dispatchers.Main) { showDialog(activity, o) }) {
-					installer.install(activity, installer.downloadAsync(activity, o.apk) { _, _ -> }, 0)
+					installer.install(
+						activity,
+						installer.downloadAsync(activity, o.apk) { _, _ -> },
+						0
+					)
 				}
 			}
 		}

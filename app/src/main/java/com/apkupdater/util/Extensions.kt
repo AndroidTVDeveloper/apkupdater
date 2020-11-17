@@ -28,7 +28,7 @@ val ioScope = CoroutineScope(Dispatchers.IO)
 
 val uiScope = CoroutineScope(Dispatchers.Main)
 
-fun <T> CoroutineScope.catchingAsync(block: suspend () -> T): Deferred<Result<T>> = ioScope.async { runCatching { block() } }
+fun <T> catchingAsync(block: suspend () -> T): Deferred<Result<T>> = ioScope.async { runCatching { block() } }
 
 fun Context.getAccentColor() = TypedValue().apply { theme.resolveAttribute(resources.getIdentifier("colorAccent", "attr", packageName), this, true) }.data
 
